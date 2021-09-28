@@ -4,7 +4,6 @@ class ArticlesController < ApplicationController
     render json: @current_user.articles
   end
   def show
-   # @user=User.find(params[:user_id])
     @article=@current_user.articles.find(params[:id])
     render json: {article: @article.as_json(only:[:title,:body]),articlecomments: @article.comments.as_json(only:[:commenter,:body])}
     
